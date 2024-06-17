@@ -16,3 +16,5 @@ ros2 launch my_bot rsp.launch.py use_sim_time:=true
 sudo apt install ros-foxy-gazebo-ros-pkgs
 ros2 launch gazebo_ros gazebo.launch.py
 ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity bot_name
+
+sudo apt install ros-foxy-image-transport-plugins
