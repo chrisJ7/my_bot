@@ -7,14 +7,34 @@ It is recommended that you keep the repo/package name the same, but if you do ch
 Note that each directory currently has at least one file in it to ensure that git tracks the files (and, consequently, that a fresh clone has direcctories present for CMake to find). These example files can be removed if required (and the directories can be removed if `CMakeLists.txt` is adjusted accordingly).
 
 NOTES:
-sudo apt install ros-foxy-xacro ros-foxy-joint-state-publisher-gui
 
-colcon build --symlink-install
-source install/setup.bash
-ros2 launch my_bot rsp.launch.py use_sim_time:=true
+VIDEO: "Creating a rough 3D model of our robot with URDF"
+Install:
+    (xacro & gui) sudo apt install ros-foxy-xacro ros-foxy-joint-state-publisher-gui
 
-sudo apt install ros-foxy-gazebo-ros-pkgs
-ros2 launch gazebo_ros gazebo.launch.py
-ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity bot_name
+Launch topics:
+    colcon build --symlink-install
+    source install/setup.bash
+    ros2 launch my_bot rsp.launch.py use_sim_time:=true
 
-sudo apt install ros-foxy-image-transport-plugins
+VIDEO: "Driving your virtual robot!"
+Install:
+    (Gazebo) sudo apt install ros-foxy-gazebo-ros-pkgs
+Launch Gazebo:
+    ros2 launch gazebo_ros gazebo.launch.py
+Spawn robot in Gazebo:
+    ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity bot_name
+
+VIDEO: "How to use Cameras in ROS (Sim Camera and Pi Camera)"
+Install:
+    (image compression) sudo apt install ros-foxy-image-transport-plugins
+
+VIDEO: "Easy SLAM with ROS using slam_toolbox"
+Install:
+    (SLAM) sudo apt install ros-foxy-slam-toolbox
+Launch SLAM:
+    ros2 launch slam_toolbox online_async_launch.py params_file:=./src/my_bot/config/mapper_params_online_async.yaml use_sim_time:=true
+Install:
+    (Nav2) sudo apt install ros-foxy-navigation2 ros-foxy-nav2-bringup ros-foxy-turtlebot3*
+Launch map server:
+    
