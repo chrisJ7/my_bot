@@ -7,6 +7,7 @@ It is recommended that you keep the repo/package name the same, but if you do ch
 Note that each directory currently has at least one file in it to ensure that git tracks the files (and, consequently, that a fresh clone has direcctories present for CMake to find). These example files can be removed if required (and the directories can be removed if `CMakeLists.txt` is adjusted accordingly).
 
 NOTES:
+()
 
 VIDEO: "Creating a rough 3D model of our robot with URDF"
 Install:
@@ -37,4 +38,33 @@ Launch SLAM:
 Install:
     (Nav2) sudo apt install ros-foxy-navigation2 ros-foxy-nav2-bringup ros-foxy-turtlebot3*
 Launch map server:
-    
+
+VIDEO: "Making robot navigation easy with Nav2 and ROS!"
+Install:
+    (Nav2) sudo apt install ros-foxy-twist-mux
+Launch Nav2:
+    ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true
+
+Full:
+Installs:
+sudo apt update 
+sudo apt upgrade -y
+sudo apt install ros-foxy-xacro ros-foxy-joint-state-publisher-gui -y
+sudo apt install ros-foxy-gazebo-ros-pkgs -y
+sudo apt install ros-foxy-slam-toolbox -y
+sudo apt install ros-foxy-navigation2 ros-foxy-nav2-bringup ros-foxy-turtlebot3* -y
+
+Launchs:
+cd ~/.githubs/dev_ws/
+colcon build --symlink-install
+source install/setup.bash
+ros2 launch my_bot launch_sim.launch.py world:=./maze.world
+
+rviz2
+
+ros2 launch slam_toolbox online_async_launch.py params_file:=./src/my_bot/config/mapper_params_online_async.yaml use_sim_time:=true
+
+ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true
+
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+python3 create_nav2_goal_pose.py
