@@ -1,14 +1,23 @@
-## Robot Package Template
+# ROSbot Autonomous Robot
 
-This is a GitHub template. You can make your own copy by clicking the green "Use this template" button.
+## Introduction
+<p style="text-align: justify">
+In this project, we will design a simulated robot, install the needed packages SLAM and Nav2, and develop a script that uses the /goal_pose topic of Nav2 to automatically navigate a new position in code (without rviz2).</p>
 
-It is recommended that you keep the repo/package name the same, but if you do change it, ensure you do a "Find all" using your IDE (or the built-in GitHub IDE by hitting the `.` key) and rename all instances of `my_bot` to whatever your project's name is.
+## My Implementation
+NA.
+![](showcase/picture_1.PNG)  
 
-Note that each directory currently has at least one file in it to ensure that git tracks the files (and, consequently, that a fresh clone has direcctories present for CMake to find). These example files can be removed if required (and the directories can be removed if `CMakeLists.txt` is adjusted accordingly).
+How to run:
+1.
+2. Install the needed packages
+3. Launch and Build the repo
+4. Run the create_goal_pose.py script
 
-NOTES:
-()
+## Results
+NA.
 
+## Additional Notes
 VIDEO: "Creating a rough 3D model of our robot with URDF"
 Install:
     (xacro & gui) sudo apt install ros-foxy-xacro ros-foxy-joint-state-publisher-gui
@@ -68,3 +77,9 @@ ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true
 
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 python3 create_nav2_goal_pose.py
+
+Though, overall the CNN classifier worked well, it was not perfect. The classifier did have an issue with oddly bordered addresses. Incorrectly classified images can be seen in "Figure 10".
+
+![](showcase/showcase_3.PNG) 
+![](showcase/showcase_4.PNG) 
+![](showcase/showcase_5.PNG) 
